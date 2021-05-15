@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Concrete;
+using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,8 +19,20 @@ namespace MvcCampProject.Controllers
 
         public ActionResult GetCategoryList()
         {
-            var categoryValues = categoryManager.GetAll();
-            return View(categoryValues);
+           // var categoryValues = categoryManager.GetAll();
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult AddCategory()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult AddCategory(Category p)
+        {
+            //categoryManager.Add(p);
+            return RedirectToAction("GetCategoryList");
         }
     }
 }
